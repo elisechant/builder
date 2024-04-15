@@ -1,6 +1,6 @@
 import {expect, test, describe, vi} from 'vitest'
 import {render, screen, waitFor, fireEvent} from '@testing-library/react'
-import {FileUploadButton} from "@/components/builder/FileUploadButton";
+import {FileUploadButton} from "@/design-system/FileUploadButton";
 
 const renderButton = (onFile = () => {}) => {
   render(<FileUploadButton onFile={onFile}>Upload</FileUploadButton>)

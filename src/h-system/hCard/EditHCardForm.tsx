@@ -1,12 +1,12 @@
 import {useState} from "react"
 import { useForm } from 'react-hook-form'
 import toast from 'react-simple-toasts'
-import {HCardProps} from "@/h-system/hCard/HCard"
-import Label from "@/components/elements/Label"
-import Input from "@/components/elements/Input"
-import Legend from "@/components/elements/Legend"
-import Button from "@/components/elements/Button"
-import {FileUploadButton} from "@/components/builder/FileUploadButton";
+import Label from "@/design-system/Label"
+import Input from "@/design-system/Input"
+import Legend from "@/design-system/Legend"
+import Button from "@/design-system/Button"
+import {FileUploadButton} from "@/design-system/FileUploadButton";
+import {HCardProps} from "./HCard"
 
 type Props = {
   fields: HCardProps

@@ -1,5 +1,5 @@
 import {describe, expect, test} from 'vitest'
-import Button from '@/components/elements/Button'
+import Button from '@/design-system/Button'
 import {render} from '@testing-library/react'
 
 const renderButton = (props = {}) => render(<Button {...props}>text</Button>)

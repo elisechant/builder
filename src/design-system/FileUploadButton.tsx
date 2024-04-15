@@ -1,10 +1,10 @@
 import {useRef} from "react"
 import type {ReactNode} from "react"
-import Button from "@/components/elements/Button"
-import type {ButtonProps} from "@/components/elements/Button"
-import Input from "@/components/elements/Input"
-import {convertFileToBase64, getImageDimensions} from "@/utils/html";
-import type {HTMLFileInputEvent} from "@/type-utils/html";
+import Button from "@/design-system/Button"
+import type {ButtonProps} from "@/design-system/Button"
+import Input from "@/design-system/Input"
+import {convertFileToBase64, getImageDimensions} from "@/design-system/utils/html";
+import type {HTMLFileInputEvent} from "@/design-system/type-utils/html";
 
 export type Base64Image = {
   dataUrl: string

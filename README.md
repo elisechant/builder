@@ -18,7 +18,7 @@ We're READY to go live to a test cohort with Builder with some caveats:
 
 ### Next steps and Recommendations
 
-**Recommend** GO LIVE with a soft launch.
+**Recommend** GO LIVE with soft launch.
 
 To 1, 2, 3 - suggest we consider what our business conversions will be ahead of hard launch.
  

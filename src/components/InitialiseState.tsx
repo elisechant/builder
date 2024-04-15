@@ -1,8 +1,8 @@
+import type {ReactNode} from "react";
+import {useEffect} from "react";
 import {createBlock, useBlocksStore} from "@/stores/blocks";
 import {selectBlocks} from "@/utils/blocks";
 import {useDraftBlockStore} from "@/stores/draftBlock";
-import type {ReactNode} from "react";
-import {useEffect} from "react";
 
 type Props = {
   children: ReactNode

@@ -1,9 +1,12 @@
 export const convertFileToBase64 = (file: File): Promise<{ dataUrl: string }> => {
-  return new Promise(res => {
+  return new Promise((res, rej) => {
     const reader = new FileReader()
     reader.onload = () => {
       res({ dataUrl: String(reader.result) })
     }
+    setTimeout(() => {
+      rej('Timed out')
+    }, 1000)
     reader.readAsDataURL(file)
   })
 }
