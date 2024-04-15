@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+}
+
+html,
+body,
+#__next {
+  height: 100%;
+}
+
+@layer components {
+  .toast-success {
+    @apply bg-green-500;
+    @apply rounded-full;
+    padding: 10px 20px;
+    @apply text-white;
+  }
+}
