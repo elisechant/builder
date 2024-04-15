@@ -1,14 +1,12 @@
 import Link from 'next/link'
 import {useBlocksStore} from "@/stores/blocks"
-import {selectBlocks} from "@/utils/blocks"
+import {selectHCards} from "@/utils/blocks"
 import {LiveLayout} from "@/components/live/Layout"
 import HCard from "@/h-system/components/HCard";
 import Head from "next/head";
 
 export default function Live() {
-  const blocks = useBlocksStore(state => selectBlocks(state.map))
-  const hCards = blocks.filter(b => b.componentKey === 'hCard')
-
+  const hCards = useBlocksStore(state => selectHCards(state.map))
   return (
     <>
       <Head>
@@ -24,6 +22,5 @@ export default function Live() {
         <Link className={'absolute bottom-8'} href={'/'} data-testid={'goto-builder'}>‹ Back to Builder</Link>
       </LiveLayout>
     </>
-
   )
 }

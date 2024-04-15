@@ -5,8 +5,9 @@ import {useDraftBlockStore} from "@/stores/draftBlock";
 import useBreakpoint from '@/hooks/useBreakpoint'
 import {BuilderLayout, BuilderLayoutPanel, BuilderLayoutPreview} from "@/components/builder/Layout";
 import HCard from "@/h-system/components/HCard";
-import type {HCardProps} from "@/h-system/components/HCard";
-import EditHCardForm from '@/components/builder/EditHCardForm'
+import {useCallback} from "react";
+import EditHComponentFormSwitcher from '@/components/builder/EditHComponentFormSwitcher'
+import type {HComponentProps} from '@/components/builder/EditHComponentFormSwitcher'
 
 export default function Builder() {
   const saveBlock = useBlocksStore(state => state.saveBlock)
@@ -15,13 +16,11 @@ export default function Builder() {
   const { isMobile, isDesktop, isMobilePlus } = useBreakpoint()
   const router = useRouter()
 
-  const save = () => {
-    if (typeof draft === 'undefined') return
-    saveBlock(draft)
+  const onSubmitSuccess = useCallback(() => {
     if (isMobile) {
-      router.push('live')
+      return router.push('live')
     }
-  }
+  }, [isMobile, router])
 
   if (!draft) return null
 
@@ -32,14 +31,23 @@ export default function Builder() {
   return (
     <BuilderLayout>
       <BuilderLayoutPanel>
-        <h1 className={'text-3xl leading-relaxed text-slate-700 font-medium mb-2'}>{draft.componentKey} Builder</h1>
+        <h1 className={'text-3xl leading-relaxed text-slate-700 font-medium mb-2'}>
+          {draft.componentKey} Builder
+        </h1>
         <div>
-          <EditHCardForm fields={draft.props as HCardProps}
-                         setFieldOnChange={(name: keyof HCardProps, value: any) => {
-                            saveDraftProps({...draft?.props || {}, [name]: value})
-                         }}
-                         submit={save}
-                         isNew={typeof draft.updatedAt === 'undefined'}
+          <EditHComponentFormSwitcher
+            componentKey={draft.componentKey}
+            props={draft.props as HComponentProps}
+            setProps={(key, value) => {
+              saveDraftProps({...draft?.props || {}, [key]: value})
+            }}
+            saveBlock={() => {
+              if (draft) {
+                saveBlock(draft)
+              }
+            }}
+            onSubmitSuccess={onSubmitSuccess}
+            isNew={typeof draft.updatedAt === 'undefined'}
           />
         </div>
         {isMobilePlus && (
