@@ -1,7 +1,7 @@
 import {useState} from "react"
 import { useForm } from 'react-hook-form'
 import toast from 'react-simple-toasts'
-import {HCardProps} from "@/h-system/components/HCard"
+import {HCardProps} from "@/h-system/hCard/HCard"
 import Label from "@/components/elements/Label"
 import Input from "@/components/elements/Input"
 import Legend from "@/components/elements/Legend"
@@ -10,7 +10,7 @@ import {FileUploadButton} from "@/components/builder/FileUploadButton";
 
 type Props = {
   fields: HCardProps
-  setFieldOnChange: (s: keyof HCardProps, value: any) => void
+  setFieldOnChange: (key: string, value: any) => void
   submit: () => void
   isNew: boolean
 }
@@ -27,6 +27,7 @@ export default function EditHCardForm({ fields, setFieldOnChange, submit, isNew 
     <form data-testid={'hcard-form'} onSubmit={handleSubmit(data => {
       console.log('submitting:', JSON.stringify(fields))
       try {
+        setLoading(true)
         submit()
         toast('Saved')
       } catch (error) {

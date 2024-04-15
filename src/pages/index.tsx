@@ -4,7 +4,7 @@ import {useBlocksStore} from "@/stores/blocks";
 import {useDraftBlockStore} from "@/stores/draftBlock";
 import useBreakpoint from '@/hooks/useBreakpoint'
 import {BuilderLayout, BuilderLayoutPanel, BuilderLayoutPreview} from "@/components/builder/Layout";
-import HCard from "@/h-system/components/HCard";
+import HCard from "@/h-system/hCard/HCard";
 import {useCallback} from "react";
 import EditHComponentFormSwitcher from '@/components/builder/EditHComponentFormSwitcher'
 import type {HComponentProps} from '@/components/builder/EditHComponentFormSwitcher'

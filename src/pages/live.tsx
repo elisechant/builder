@@ -1,9 +1,9 @@
 import Link from 'next/link'
+import Head from "next/head";
 import {useBlocksStore} from "@/stores/blocks"
 import {selectHCards} from "@/utils/blocks"
 import {LiveLayout} from "@/components/live/Layout"
-import HCard from "@/h-system/components/HCard";
-import Head from "next/head";
+import HCard from "@/h-system/hCard/HCard";
 
 export default function Live() {
   const hCards = useBlocksStore(state => selectHCards(state.map))

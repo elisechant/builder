@@ -1,5 +1,5 @@
 import {describe, expect, test} from 'vitest'
-import HCard from '@/h-system/components/HCard'
+import HCard from '@/h-system/hCard/HCard'
 import {render} from '@testing-library/react'
 
 const mock =  {

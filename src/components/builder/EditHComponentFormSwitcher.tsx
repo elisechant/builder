@@ -1,13 +1,14 @@
 import {HComponentKey} from "@/h-system/types";
-import type {HCardProps} from '@/h-system/components/HCard';
-import EditHCardForm from '@/components/builder/EditHCardForm'
+import type {HCardProps} from '@/h-system/hCard/HCard';
+import EditHCardForm from '@/h-system/hCard/EditHCardForm'
 
 export type HComponentProps = HCardProps
 
 type Props = {
   componentKey: HComponentKey
   props: HComponentProps
-  setProps: (key: keyof HComponentProps, value: any) => void
+  setProps: (key: string, value: any) => void
+  saveBlock: () => void
   isNew: boolean
 }
 
