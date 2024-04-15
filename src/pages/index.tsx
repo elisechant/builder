@@ -18,7 +18,7 @@ export default function Builder() {
 
   const onSubmitSuccess = useCallback(() => {
     if (isMobile) {
-      return router.push('live')
+      router.push('live')
     }
   }, [isMobile, router])
 
@@ -45,8 +45,8 @@ export default function Builder() {
               if (draft) {
                 saveBlock(draft)
               }
+              onSubmitSuccess()
             }}
-            onSubmitSuccess={onSubmitSuccess}
             isNew={typeof draft.updatedAt === 'undefined'}
           />
         </div>
